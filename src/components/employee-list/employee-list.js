@@ -13,7 +13,7 @@ const EmployeeList = ({data, onDelete, onToggleIncrease, onToggleRise}) => {
             {...itemProps} 
             onDelete={() => onDelete(id)}
             onToggleIncrease={() => onToggleIncrease(id)}
-            onToggleRise={() => onToggleRise(id)}/> // короткий вариант со спред оператором + key который говорит что это 
+            onToggleRise={() => onToggleRise(id)}/> 
         )
     })
     
