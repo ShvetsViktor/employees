@@ -101,6 +101,11 @@ class App extends Component {
         this.setState({filter})
     }
 
+    onSalaryChange = (value, id) => {
+        if (isNaN(value)) return;
+        this.setState(({data}) => ({data: data.map(item => item.id === id ? ({...item, salary: Number(value)}) : item)}));
+    }
+
     render() {
         const {data, term, filter} = this.state;
         const employees = this.state.data.length;
@@ -120,7 +125,8 @@ class App extends Component {
                     data={visibleData}
                     onDelete={this.deleteItem}
                     onToggleIncrease={this.onToggleIncrease}
-                    onToggleRise={this.onToggleRise}/>
+                    onToggleRise={this.onToggleRise}
+                    onSalaryChange={this.onSalaryChange}/>
                 <EmployeeAddForm
                     onAddEmployee={this.addEmployee}/>
             </div>
